@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: './src/js/main.js',
   output: {
     filename: 'js/main.js',
@@ -18,7 +19,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['env', 'es2015', 'stage-0']
           }
         }
       },
@@ -33,7 +34,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              url: false,
+              url: true,
               minimize: true,
               sourceMap: true
             }
@@ -50,7 +51,7 @@ module.exports = {
   },
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
-    new MiniCssExtractPlugin('css/style.css'),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
     new CopyWebpackPlugin([
       {
         from: 'src/',

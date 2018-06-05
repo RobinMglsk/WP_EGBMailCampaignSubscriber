@@ -45,7 +45,7 @@ class EGBSubscriber_widget extends WP_Widget {
         // widget Content     
 		echo '
 		<p>'.$instance['description'].'</p>
-		<form action="#">
+		<form id="egbcm_form" action="#">
 
 			<div class="form-group">
 				'.($label ? '<label for="egbcm_first_name">'.$instance['first_name_field_text'].'</label>' : null).'
@@ -65,7 +65,7 @@ class EGBSubscriber_widget extends WP_Widget {
 			</div>
 
 			<input type="submit" value="'.$instance['submit_button_text'].'" class="'.$this->class_prefix.'-form-control '.$this->class_prefix.'-submit">
-			
+			<script>var egbsub = new EGBSubscriber(\'egbcm_form\', \''.$instance['api_url'].'\');</script>
 		</form>
 		';
 
@@ -89,6 +89,7 @@ class EGBSubscriber_widget extends WP_Widget {
 		$submit_button_text = !empty( $instance['submit_button_text'] ) ? $instance['submit_button_text'] : esc_html__( 'Inschrijven', 'egbmc_domain' );
 		$labels = !empty( $instance['labels'] ) ? $instance['labels'] : 'true';
 		$class_prefix = !empty( $instance['class_prefix'] ) ? $instance['class_prefix'] : 'wpcf7';
+		$api_url = !empty( $instance['api_url'] ) ? $instance['api_url'] : '';
 
 
 		echo '
@@ -176,6 +177,16 @@ class EGBSubscriber_widget extends WP_Widget {
 				name="'.esc_attr( $this->get_field_name( 'class_prefix' ) ).'" 
 				type="text" 
 				value="'.esc_attr( $class_prefix ).'">
+		</p>
+		<h4>Settings<hr/></h4>
+		<p>
+		    <label for="'.esc_attr( $this->get_field_id( 'api_url' ) ).'">'.esc_attr( 'API Url:', 'egbmc_domain' ).'</label> 
+			<input 
+				class="widefat" 
+				id="'.esc_attr( $this->get_field_id( 'api_url' ) ).'" 
+				name="'.esc_attr( $this->get_field_name( 'api_url' ) ).'" 
+				type="text" 
+				value="'.esc_attr( $api_url ).'">
 		</p>';
 
 
@@ -204,6 +215,7 @@ class EGBSubscriber_widget extends WP_Widget {
 		$instance['submit_button_text'] = ( ! empty( $new_instance['submit_button_text'] ) ) ? sanitize_text_field( $new_instance['submit_button_text'] ) : '';
 		$instance['labels'] = ( ! empty( $new_instance['labels'] ) ) ? sanitize_text_field( $new_instance['labels'] ) : '';
 		$instance['class_prefix'] = ( ! empty( $new_instance['class_prefix'] ) ) ? sanitize_text_field( $new_instance['class_prefix'] ) : '';
+		$instance['api_url'] = ( ! empty( $new_instance['api_url'] ) ) ? sanitize_text_field( $new_instance['api_url'] ) : '';
 
 		return $instance;
 	}

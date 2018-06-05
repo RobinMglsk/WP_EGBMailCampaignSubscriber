@@ -4,9 +4,15 @@ class EGBSubscriber {
    * @param {string} formId
    * @param {string} apiUrl
    */
-  constructor(formId) {
+  constructor(formId, apiUrl) {
     this.formId = formId;
     this.apiUrl = apiUrl;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document
+        .querySelector(`#${formId} > input[type=submit]`)
+        .addEventListener('click', e => this.process(e));
+    });
   }
 
   /**
@@ -18,7 +24,7 @@ class EGBSubscriber {
     // Get values
     const firstName = document.getElementById('egbcm_first_name').value;
     const lastName = document.getElementById('egbcm_last_name').value;
-    const company = document.getElementById('egbcm_company_name').value;
+    const company = document.getElementById('egbcm_company').value;
     const email = document.getElementById('egbcm_email').value;
 
     // Validate
@@ -92,6 +98,8 @@ class EGBSubscriber {
    * @param {string} type
    */
   msg(string, type) {
-    const msgType = type || 'error';
+    console.log(string);
   }
 }
+
+export default EGBSubscriber;

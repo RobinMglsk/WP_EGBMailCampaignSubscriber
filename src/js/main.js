@@ -1,4 +1,4 @@
-//import '../css/style.scss';
+import EGBSubscriber from './EGBSub.js';
+window.EGBSubscriber = EGBSubscriber;
 
-import './EGBSub';
-const egbsub = new EGBSubscriber();
+import '../css/style.scss';
