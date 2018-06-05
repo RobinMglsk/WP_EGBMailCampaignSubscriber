@@ -1,0 +1,52 @@
+{
+  "name": "egbsubscriber",
+  "version": "0.0.1",
+  "description": "WP Plugin to subscribe to a mailinglist on the Egberghs Campaign Platform",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinMglsk/WP_EGBMailCampaignSubscriber.git"
+  },
+  "keywords": [
+    "Wordpress",
+    "Plugin",
+    "Egberghs",
+    "Campaign",
+    "Platform",
+    "Mailinglist",
+    "Subscribe"
+  ],
+  "author": "RobinMglsk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobinMglsk/WP_EGBMailCampaignSubscriber/issues"
+  },
+  "homepage": "https://github.com/RobinMglsk/WP_EGBMailCampaignSubscriber#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.9",
+    "exports-loader": "^0.7.0",
+    "file-loader": "^1.1.9",
+    "image-webpack-loader": "^4.1.0",
+    "imports-loader": "^0.8.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.0",
+    "precss": "^3.1.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "tether": "^1.4.3",
+    "transfer-webpack-plugin": "^0.1.4",
+    "url-loader": "^0.6.2",
+    "webpack": "^4.11.0"
+  },
+  "dependencies": {}
+}
